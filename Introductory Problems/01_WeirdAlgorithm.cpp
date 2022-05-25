@@ -11,7 +11,7 @@ int main()
 #endif
 
     // Code here
-    int n;
+    long long n;
     cin >> n;
     while (true)
     {
