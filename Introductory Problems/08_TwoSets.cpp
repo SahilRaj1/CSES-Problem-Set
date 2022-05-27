@@ -3,25 +3,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool setGeneration(int i, vector<int> nums, vector<int> &v, long long target) {
-    if (i==nums.size()) {
-        long long sos = accumulate(v.begin(), v.end(), sos);
-        if (sos==target) {
-            for (auto value : v) {
-                cout<<value<<" ";
-            }
-            cout<<endl;
-            return true;
+void printSS(int num, int n, vector<int> &v, int sum, int target)
+{
+    if (num > n)
+    {
+        if (sum == target)
+        {
+            cout << v.size() << endl;
+            for (auto &value : v)
+                cout << value << " ";
+            cout << endl;
         }
+        return;
     }
-
     // take
-    v.push_back(nums[i]);
-    if (setGeneration(i+1, nums, v, target)) return true;
+    v.push_back(num);
+    sum += num;
+    printSS(num + 1, n, v, sum, target);
+    sum -= num;
     v.pop_back();
     // not take
-    if (setGeneration(i, nums, v, target)) return true;
-    return false;
+    printSS(num + 1, n, v, sum, target);
 }
 
 int main()
@@ -33,19 +35,18 @@ int main()
 
     // Code here
     int n;
-    cin>>n;
-    vector<int> nums(n);
-    for (int i=0; i<n; i++) {
-        nums[i] = i+1;
-    }
+    cin >> n;
     vector<int> v;
-    long long sum = (n*(n+1))/2;
-
-    if (sum%2 != 0) {
-        cout<<"NO"<<endl;
-    } else {
-        cout<<"YES"<<endl;
-        setGeneration(0, nums, v, sum/2);
+    int sum = 0;
+    int target = (n * (n + 1)) / 4;
+    if ((n * (n + 1)) % 4 == 0)
+    {
+        cout << "YES" << endl;
+        printSS(1, n, v, sum, target);
+    }
+    else
+    {
+        cout << "NO" << endl;
     }
 
     return 0;
