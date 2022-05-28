@@ -2,29 +2,7 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-
-void printSS(int num, int n, vector<int> &v, int sum, int target)
-{
-    if (num > n)
-    {
-        if (sum == target)
-        {
-            cout << v.size() << endl;
-            for (auto &value : v)
-                cout << value << " ";
-            cout << endl;
-        }
-        return;
-    }
-    // take
-    v.push_back(num);
-    sum += num;
-    printSS(num + 1, n, v, sum, target);
-    sum -= num;
-    v.pop_back();
-    // not take
-    printSS(num + 1, n, v, sum, target);
-}
+typedef long long ll;
 
 int main()
 {
@@ -34,19 +12,38 @@ int main()
 #endif
 
     // Code here
-    int n;
+    ll n;
     cin >> n;
-    vector<int> v;
-    int sum = 0;
-    int target = (n * (n + 1)) / 4;
-    if ((n * (n + 1)) % 4 == 0)
+    ll sum = n * (n + 1) / 2;
+    if (sum % 2 == 1)
     {
-        cout << "YES" << endl;
-        printSS(1, n, v, sum, target);
+        cout << "NO" << endl;
     }
     else
     {
-        cout << "NO" << endl;
+        cout << "YES" << endl;
+        ll target = sum / 2;
+        set<ll> s1, s2;
+        for (int i = 1; i <= n; i++)
+            s1.insert(i);
+        ll t = n;
+        while (target > 0 && s1.count(target) == 0)
+        {
+            s2.insert(t);
+            s1.erase(t);
+            target -= t;
+            t--;
+        }
+        s1.erase(target);
+        s2.insert(target);
+        cout << s1.size() << endl;
+        for (auto &value : s1)
+            cout << value << " ";
+        cout << endl;
+        cout << s2.size() << endl;
+        for (auto &value : s2)
+            cout << value << " ";
+        cout << endl;
     }
 
     return 0;
