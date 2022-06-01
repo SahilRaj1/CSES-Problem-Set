@@ -22,7 +22,7 @@ int main()
         }
         if (i % 10 == 0)
         {
-            ct++;
+            
         }
         else if (i % 5 == 0 && mul2 == 2)
         {
