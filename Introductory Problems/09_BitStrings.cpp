@@ -13,15 +13,9 @@ int main()
 #endif
 
     // Code here
-    ll n, ans = 1;
+    ll n;
     cin >> n;
-
-    for (ll i = 1; i <= n; i++)
-    {
-        ans = (ans * 2) % mod;
-    }
-
-    cout << ans << endl;
+    cout<<(1<<n)<<endl;
 
     return 0;
 }
