@@ -15,7 +15,7 @@ int main()
     int n, ct = 0;
     cin >> n;
 
-    for (int i = 5; n / i >= 1; i *= 5)
+    for (int i = 5; i <= n; i *= 5)
     {
         ct += n / i;
     }
