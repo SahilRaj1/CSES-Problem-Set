@@ -9,10 +9,21 @@ void solve()
     // Code here
     int a, b;
     cin >> a >> b;
-    if ((a + b) % 3 == 0)
-        cout << "YES" << endl;
-    else
+    int x = max(a, b), y = min(a, b);
+    // if (x == 0 || y == 0)
+    //     cout << "NO" << endl;
+
+    if (x > 2 * y)
+    {
         cout << "NO" << endl;
+    }
+    else
+    {
+        if ((a + b) % 3 == 0)
+            cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
+    }
 
     return;
 }
