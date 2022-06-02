@@ -9,21 +9,7 @@ void solve()
     // Code here
     int a, b;
     cin >> a >> b;
-    while (a && b)
-    {
-        if (a >= b)
-        {
-            a -= 2;
-            b--;
-        }
-        else
-        {
-            b -= 2;
-            a--;
-        }
-    }
-
-    if (a == b)
+    if ((a + b) % 3 == 0)
         cout << "YES" << endl;
     else
         cout << "NO" << endl;
