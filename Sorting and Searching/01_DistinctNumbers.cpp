@@ -33,7 +33,16 @@ int main()
     cout.tie(0);
 
     // Code here
-    
+    int n;
+    cin>>n;
+    vi v(n);
+    map<int, int> m;
+    fr(i, n) {
+        cin>>v[i];
+        m[v[i]]++;
+    }
+
+    cout<<m.size()<<endl;
 
     return 0;
 }
