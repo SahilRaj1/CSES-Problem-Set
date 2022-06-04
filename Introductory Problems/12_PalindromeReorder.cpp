@@ -18,7 +18,6 @@ int main()
     // Code here
     string s, s1 = "", s2 = "";
     cin >> s;
-    int n = s.length();
     map<char, int> m1, m2;
     for (auto &it : s)
     {
