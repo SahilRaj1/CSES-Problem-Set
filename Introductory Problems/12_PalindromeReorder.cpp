@@ -36,8 +36,8 @@ int main()
         {
             for (int j = 0; j < (ct / 2); j++)
             {
-                s1.push_back(letter);
-                s2.push_back(letter);
+                s1.pb(letter);
+                s2.pb(letter);
             }
             m2.erase(it);
         }
