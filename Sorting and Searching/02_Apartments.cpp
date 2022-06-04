@@ -1,4 +1,4 @@
-// Distinct Numbers
+// Apartments
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -35,16 +35,19 @@ int main()
     cout.tie(0);
 
     // Code here
-    int n;
-    cin>>n;
-    vi v(n);
-    map<int, int> m;
-    fr(i, n) {
-        cin>>v[i];
-        m[v[i]]++;
-    }
+    int n, m, k;
+    cin >> n >> m >> k;
+    vi des_size(n);
+    vi apt_size(m);
+    fr(i, n)
+            cin >>
+        des_size[i];
+    fr(i, m)
+            cin >>
+        apt_size[i];
 
-    cout<<m.size()<<endl;
+    sort(all(des_size));
+    sort(all(apt_size));
 
     return 0;
 }
