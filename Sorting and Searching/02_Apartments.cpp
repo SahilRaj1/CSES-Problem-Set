@@ -47,6 +47,33 @@ int main()
 
     sort(all(des_size));
     sort(all(apt_size));
+    // fre(it, des_size) cout << it << " ";
+    // cout << endl;
+    // fre(it, apt_size) cout << it << " ";
+    int ans = 0;
+    FORD(i, n - 1, 0)
+    {
+        FORD(j, m - 1, 0)
+        {
+            if (abs(des_size[i] - apt_size[j]) <= k)
+            {
+                ans++;
+                des_size.pp();
+                apt_size.pp();
+                n--;
+                m--;
+                break;
+            }
+            else
+            {
+                des_size.pp();
+                n--;
+                break;
+            }
+        }
+    }
+
+    cout << ans << endl;
 
     return 0;
 }
