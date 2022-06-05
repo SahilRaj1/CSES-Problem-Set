@@ -42,33 +42,39 @@ int main()
     cin >> n >> m >> k;
     vi des_size(n);
     vi apt_size(m);
-    fr(i, n) cin >> des_size[i];
-    fr(i, m) cin >> apt_size[i];
+    unordered_map<int, int> aflag, dflag;
+    fr(i, n)
+    {
+        cin >> des_size[i];
+        dflag[i] = 0;
+    }
+    fr(i, m)
+    {
+        cin >> apt_size[i];
+        aflag[i] = 0;
+    }
 
     sort(all(des_size));
     sort(all(apt_size));
-    // fre(it, des_size) cout << it << " ";
-    // cout << endl;
-    // fre(it, apt_size) cout << it << " ";
-    int ans = 0;
-    FORD(i, n - 1, 0)
+
+    int i = 0, j = 0, ans = 0;
+    while (i < n && j < m)
     {
-        FORD(j, m - 1, 0)
+        if (abs(des_size[i] - apt_size[j]) <= k)
         {
-            if (abs(des_size[i] - apt_size[j]) <= k)
+            ans++;
+            i++;
+            j++;
+        }
+        else
+        {
+            if (des_size[i] - apt_size[j] > k)
             {
-                ans++;
-                des_size.pp();
-                apt_size.pp();
-                n--;
-                m--;
-                break;
+                j++;
             }
             else
             {
-                des_size.pp();
-                n--;
-                break;
+                i++;
             }
         }
     }
