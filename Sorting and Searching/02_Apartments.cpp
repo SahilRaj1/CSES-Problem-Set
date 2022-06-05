@@ -1,5 +1,3 @@
-// Apartments
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -7,10 +5,15 @@ typedef long long ll;
 typedef vector<int> vi;
 typedef vector<long long> vll;
 typedef vector<vector<int>> vvi;
+typedef set<int> si;
+typedef set<ll> sll;
+typedef map<int, int> mii;
+typedef map<ll, ll> mll;
+typedef map<char, int> mci;
 #define FOR(a, b, c) for (int(a) = (b); (a) < (c); ++(a))
 #define FORN(a, b, c) for (int(a) = (b); (a) <= (c); ++(a))
 #define FORD(a, b, c) for (int(a) = (b); (a) >= (c); --(a))
-#define forEach(a, b) for (auto &(a) : (b))
+#define fre(a, b) for (auto &(a) : (b))
 #define fr(i, n) FOR(i, 0, n)
 #define frn(i, n) FORN(i, 1, n)
 #define sqr(x) ((LL)(x) * (x))
@@ -39,12 +42,8 @@ int main()
     cin >> n >> m >> k;
     vi des_size(n);
     vi apt_size(m);
-    fr(i, n)
-            cin >>
-        des_size[i];
-    fr(i, m)
-            cin >>
-        apt_size[i];
+    fr(i, n) cin >> des_size[i];
+    fr(i, m) cin >> apt_size[i];
 
     sort(all(des_size));
     sort(all(apt_size));
