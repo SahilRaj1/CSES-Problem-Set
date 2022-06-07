@@ -36,7 +36,9 @@ vvi divisors(X);
 void solve()
 {
     // Code here
-    
+    int x;
+    cin >> x;
+    cout << 1 + divisors[x].size() << endl;
 
     return;
 }
@@ -51,6 +53,15 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
+
+    divisors[1] = {1};
+    FOR(i, 2, X)
+    {
+        for (int j = i; j < X; j += i)
+        {
+            divisors[j].pb(i);
+        }
+    }
 
     int t;
     cin >> t;
