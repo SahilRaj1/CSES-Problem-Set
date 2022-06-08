@@ -31,14 +31,14 @@ typedef map<char, int> mci;
 const int M = 1e9 + 7;
 
 const int X = 1e6 + 2;
-vvi divisors(X);
+vi divisors(X);
 
 void solve()
 {
     // Code here
     int x;
     cin >> x;
-    cout << 1 + divisors[x].size() << endl;
+    cout << 1 + divisors[x] << endl;
 
     return;
 }
@@ -54,12 +54,12 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
-    divisors[1] = {1};
+    divisors[1] = 0;
     FOR(i, 2, X)
     {
         for (int j = i; j < X; j += i)
         {
-            divisors[j].pb(i);
+            divisors[j]++;
         }
     }
 
