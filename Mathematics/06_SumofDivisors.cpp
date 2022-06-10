@@ -87,12 +87,11 @@ int main()
             int num = binExp(prime.fi, prime.se + 1, M) - 1;
             int den = prime.fi - 1;
             ans = ans % M * 1LL * num % M * binExp(den, M - 2, M) % M;
-            // cout << prime.fi << " " << prime.se << endl;
         }
         finalAns += ans;
     }
 
-    cout << finalAns + 1 << endl;
+    // cout << finalAns + 1 << endl;
 
     return 0;
 }
