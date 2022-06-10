@@ -1,5 +1,3 @@
-// Common Divisors
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -8,17 +6,12 @@ typedef vector<int> vi;
 typedef vector<long long> vll;
 typedef vector<vector<int>> vvi;
 typedef vector<bool> vb;
-typedef set<int> si;
-typedef set<ll> sll;
-typedef map<int, int> mii;
-typedef map<ll, ll> mll;
-typedef map<char, int> mci;
-#define FOR(a, b, c) for (int(a) = (b); (a) < (c); ++(a))
-#define FORN(a, b, c) for (int(a) = (b); (a) <= (c); ++(a))
-#define FORD(a, b, c) for (int(a) = (b); (a) >= (c); --(a))
+#define fr(a, b, c) for (int(a) = (b); (a) < (c); ++(a))
+#define frn(a, b, c) for (int(a) = (b); (a) <= (c); ++(a))
+#define frd(a, b, c) for (int(a) = (b); (a) >= (c); --(a))
 #define fre(a, b) for (auto &(a) : (b))
-#define fr(i, n) FOR(i, 0, n)
-#define frn(i, n) FORN(i, 1, n)
+#define f(i, n) fr(i, 0, n)
+#define fn(i, n) frn(i, 1, n)
 #define sqr(x) ((LL)(x) * (x))
 #define endl "\n"
 #define pb push_back
@@ -45,9 +38,11 @@ int main()
     int n;
     cin>>n;
     vi arr(n);
-    fr(i, n) cin>>arr[i];
-
-
+    f(i, n) cin>>arr[i];
+    
+    int max = *max_element(all(arr));
+    vb present(max+1, 0);
+    
 
     return 0;
 }
