@@ -83,9 +83,11 @@ int main() {
     for (int i=0; i<n; i++) cin>>t[i];
     for (int i=0; i<k; i++) cin>>c[i];
     sort(all(t));
+    sort(all(c));
     int i=0, j=0;
-    while (i<k && j<n) {
+    while (i<k) {
         if (!sold[j]) {
+            if (j==n) break;
             if (c[i]>=t[j]) {
                 cout<<t[j]<<endl;
                 sold[j]=true;
@@ -97,6 +99,8 @@ int main() {
             }
         }
     }
+
+    for (int x=0; x<k-i; i++) cout<<-1<<endl;
 
     return 0;
 }
